@@ -1,0 +1,5 @@
+rootProject.name = 'microservice-test'
+include 'eureka'
+include 'user'
+include 'power'
+

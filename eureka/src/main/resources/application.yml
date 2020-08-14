@@ -1,0 +1,58 @@
+# Three peer aware Eureka Servers
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:5001/eureka,http://peer2:5002/eureka,http://peer3:5003/eureka
+spring:
+  application:
+    name: eureka-server
+
+---
+spring:
+  profiles: peer1
+eureka:
+  instance:
+    hostname: peer1
+server:
+  port: 5001
+
+
+---
+spring:
+  profiles: peer2
+eureka:
+  instance:
+    hostname: peer2
+server:
+  port: 5002
+
+
+---
+spring:
+  profiles: peer3
+eureka:
+  instance:
+    hostname: peer3
+server:
+  port: 5003
+
+
+
+
+
+
+
+# Standalone Mode
+#server:
+#  port: 8761
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    serviceUrl:
+
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
